@@ -1,0 +1,9 @@
+# Created by .ignore support plugin (hsz.mobi)
+# User-specific stuff:
+/.idea/
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+*.iml
+
