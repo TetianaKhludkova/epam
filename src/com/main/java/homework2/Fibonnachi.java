@@ -29,7 +29,7 @@ public class Fibonnachi {
                 scanner.close();
             }
             getNumberByIndex(INDEX);
-
+            findParityVsOddness();
     }
 
     private static void countFibonnachi(BigInteger previous, BigInteger  current, Integer count){
@@ -42,10 +42,28 @@ public class Fibonnachi {
         BigInteger numberByIndex = null;
         try {
             numberByIndex = arrayList.get(INDEX);
-            System.out.printf("Number at index %d is %d", INDEX, numberByIndex);
+            System.out.printf("Number at index %d is %d \n", INDEX, numberByIndex);
         } catch (Exception e) {
-            System.out.println("Invalid input. Not a number");
+            System.out.println("Invalid input. Not a number\n");
         }
         return numberByIndex;
+    }
+
+    private static void findParityVsOddness() {
+        int countParity = 0;
+        int countOddness = 0;
+
+
+        for (int i = 0; i < arrayList.size(); i++) {
+            BigInteger[] divideAndRemainder = arrayList.get(i).divideAndRemainder(BigInteger.valueOf(2));
+            if(divideAndRemainder[1].equals(BigInteger.valueOf(0))){
+                countParity++;
+            }else {
+                countOddness++;
+            }
+        }
+        System.out.println("Parity " + countParity*100.f/arrayList.size()+" %");
+        System.out.println("Oddness " + countOddness*100.f/arrayList.size()+ " %");
+
     }
 }
