@@ -12,27 +12,30 @@ INSERT INTO `menu` (`name`, `price`) VALUES ('Cola',3.4);
 INSERT INTO `menu` (`name`, `price`) VALUES ('Potato',7.2);
 
 
-CREATE TABLE IF NOT EXISTS `customers` (
-  `id` int(3) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `customerName` VARCHAR(10)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+CREATE TABLE customers
+(
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    customerName VARCHAR(10) NOT NULL
+);
+CREATE UNIQUE INDEX customers_id_uindex ON customers (id);
 
 INSERT INTO `customers` (`id`, `customerName`) VALUES (1,'Juan');
 INSERT INTO `customers` (`id`, `customerName`) VALUES (2,'Ann');
 INSERT INTO `customers` (`id`, `customerName`) VALUES (3,'Moe');
 
 
-CREATE TABLE IF NOT EXISTS `orders` (
-  `id` int(3) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `price` int(5),
-  `customerID` int(3),
-  `prodactID` int(3) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+CREATE TABLE orders
+(
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  customerId INT NOT NULL,
+  productId INT NOT NULL
+);
+CREATE UNIQUE INDEX orders_id_uindex ON orders (id);
 
-INSERT INTO `orders` (`id`, `customerID`, `prodactID`) VALUES (1,'1','3');
-INSERT INTO `orders` (`id`, `customerID`, `prodactID`) VALUES (2,'1','1');
-INSERT INTO `orders` (`id`, `customerID`, `prodactID`) VALUES (3,'1','3');
-INSERT INTO `orders` (`id`, `customerID`, `prodactID`) VALUES (4,'2','2');
-INSERT INTO `orders` (`id`, `customerID`, `prodactID`) VALUES (5,'3','4');
-INSERT INTO `orders` (`id`, `customerID`, `prodactID`) VALUES (6,'3','3');
+INSERT INTO `orders` (`id`, `customerId`, `productId`) VALUES (1,'1','3');
+INSERT INTO `orders` (`id`, `customerId`, `productId`) VALUES (2,'1','1');
+INSERT INTO `orders` (`id`, `customerId`, `productId`) VALUES (3,'1','3');
+INSERT INTO `orders` (`id`, `customerId`, `productId`) VALUES (4,'2','2');
+INSERT INTO `orders` (`id`, `customerId`, `productId`) VALUES (5,'3','4');
+INSERT INTO `orders` (`id`, `customerId`, `productId`) VALUES (6,'3','3');
 
