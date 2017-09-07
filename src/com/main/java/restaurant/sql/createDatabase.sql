@@ -1,13 +1,15 @@
-CREATE TABLE IF NOT EXISTS `menu` (
-  `id` int(3) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `name` varchar(20),
-  `price` double
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS menu
+(
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name VARCHAR(20) DEFAULT NULL ,
+    price DOUBLE DEFAULT NULL
+);
+CREATE UNIQUE INDEX menu_id_uindex ON menu (id);
 
-INSERT INTO `menu` (`id`, `name`, `price`) VALUES (1,'Pizza',10);
-INSERT INTO `menu` (`id`, `name`, `price`) VALUES (2,'Sushi',20.5);
-INSERT INTO `menu` (`id`, `name`, `price`) VALUES (3,'Cola',3.4);
-INSERT INTO `menu` (`id`, `name`, `price`) VALUES (4,'Potato',7.2);
+INSERT INTO `menu` (`name`, `price`) VALUES ('Pizza',10);
+INSERT INTO `menu` (`name`, `price`) VALUES ('Sushi',20.5);
+INSERT INTO `menu` (`name`, `price`) VALUES ('Cola',3.4);
+INSERT INTO `menu` (`name`, `price`) VALUES ('Potato',7.2);
 
 
 CREATE TABLE IF NOT EXISTS `customers` (
